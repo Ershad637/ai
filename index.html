@@ -3,601 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Irshad — AI Developer</title>
+<title>Muhammad Irshad — AI Developer & Automation Expert</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #0a0a0f; color: #e8e8f0; overflow-x: hidden; }
 
-  body {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    background: #0a0a0f;
-    color: #e8e8f0;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Animated background */
   body::before {
     content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at 20% 20%, rgba(83,74,183,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(29,158,117,0.1) 0%, transparent 50%);
-    animation: bgShift 12s ease-in-out infinite alternate;
-    z-index: 0;
-  }
-
-  @keyframes bgShift {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(2%, 2%); }
+    position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(83,74,183,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(29,158,117,0.08) 0%, transparent 50%);
+    z-index: 0; pointer-events: none;
   }
 
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(10,10,15,0.8);
-    backdrop-filter: blur(16px);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    z-index: 100;
   }
-
-  nav .logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #a89ff5, #5dcaa5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  nav .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  nav .nav-links a {
-    color: rgba(232,232,240,0.6);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-  }
-
-  nav .nav-links a:hover { color: #e8e8f0; }
+  .logo { font-size: 1rem; font-weight: 700; background: linear-gradient(135deg, #a89ff5, #5dcaa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { color: rgba(232,232,240,0.55); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+  .nav-links a:hover { color: #e8e8f0; }
 
   /* Hero */
   .hero {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 6rem 2rem 4rem;
+    position: relative; z-index: 1;
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 7rem 2rem 4rem;
   }
-
   .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(83,74,183,0.15);
-    border: 1px solid rgba(168,159,245,0.3);
-    color: #a89ff5;
-    font-size: 0.78rem;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(83,74,183,0.15); border: 1px solid rgba(168,159,245,0.3);
+    color: #a89ff5; font-size: 0.75rem; font-weight: 500;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 1.8rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
   }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #a89ff5; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
-  .badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #a89ff5;
-    animation: pulse 2s ease-in-out infinite;
-  }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.06; margin-bottom: 1.4rem; }
+  .gradient { background: linear-gradient(135deg, #a89ff5 0%, #5dcaa5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .tagline { font-size: 1.1rem; color: rgba(232,232,240,0.5); max-width: 560px; line-height: 1.75; margin-bottom: 2.5rem; }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-  }
-
-  h1 .name { color: #e8e8f0; }
-  h1 .gradient {
-    background: linear-gradient(135deg, #a89ff5 0%, #5dcaa5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .tagline {
-    font-size: 1.2rem;
-    color: rgba(232,232,240,0.55);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-
-  .cta-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #534ab7, #1d9e75);
-    color: #fff;
-    border: none;
-    padding: 0.85rem 2rem;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.2s, transform 0.15s;
-  }
-
+  .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .btn-primary { background: linear-gradient(135deg, #534ab7, #1d9e75); color: #fff; border: none; padding: 0.8rem 1.8rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
   .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-secondary { background: rgba(255,255,255,0.05); color: rgba(232,232,240,0.8); border: 1px solid rgba(255,255,255,0.12); padding: 0.8rem 1.8rem; border-radius: 100px; font-size: 0.9rem; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
 
-  .btn-secondary {
-    background: rgba(255,255,255,0.06);
-    color: rgba(232,232,240,0.8);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 0.85rem 2rem;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s, transform 0.15s;
+  /* Tools strip */
+  .tools-strip {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+    padding: 0.8rem 1.5rem; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07); border-radius: 100px;
   }
-
-  .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
-
-  /* Scroll indicator */
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(232,232,240,0.3);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(168,159,245,0.6), transparent);
-    animation: scrollLine 1.8s ease-in-out infinite;
-  }
-
-  @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
+  .tools-label { font-size: 0.72rem; color: rgba(232,232,240,0.35); letter-spacing: 0.06em; text-transform: uppercase; margin-right: 4px; }
+  .tool-chip { font-size: 0.75rem; color: rgba(232,232,240,0.5); padding: 3px 10px; background: rgba(255,255,255,0.05); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); }
 
   /* Sections */
-  section {
-    position: relative;
-    z-index: 1;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
+  section { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; }
+  .sec-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #a89ff5; margin-bottom: 0.6rem; }
+  .sec-title { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.8rem; }
+  .sec-sub { color: rgba(232,232,240,0.45); font-size: 0.95rem; line-height: 1.7; max-width: 520px; }
+  hr.div { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0 2rem; }
 
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #a89ff5;
-    margin-bottom: 1rem;
-  }
+  /* Stats */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 1.4rem; text-align: center; }
+  .stat-n { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, #a89ff5, #5dcaa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .stat-l { font-size: 0.78rem; color: rgba(232,232,240,0.4); margin-top: 4px; }
 
-  .section-title {
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #e8e8f0;
-    margin-bottom: 1rem;
+  /* Portfolio */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+  .project-card {
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px; padding: 1.6rem; position: relative; overflow: hidden;
+    transition: border-color 0.25s, background 0.25s;
   }
+  .project-card:hover { border-color: rgba(168,159,245,0.35); background: rgba(83,74,183,0.07); }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #534ab7, #1d9e75); opacity: 0; transition: opacity 0.25s; }
+  .project-card:hover::before { opacity: 1; }
 
-  .section-sub {
-    color: rgba(232,232,240,0.5);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 500px;
-  }
+  .project-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+  .project-icon { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .pi-purple { background: rgba(83,74,183,0.2); }
+  .pi-teal { background: rgba(29,158,117,0.2); }
+  .pi-amber { background: rgba(186,117,23,0.2); }
+  .pi-coral { background: rgba(216,90,48,0.2); }
+  .pi-pink { background: rgba(212,83,126,0.2); }
+  .pi-blue { background: rgba(55,138,221,0.2); }
 
-  /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
-    align-items: center;
-  }
+  .gcp-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(55,138,221,0.15); border: 1px solid rgba(55,138,221,0.25); color: #85b7eb; font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 100px; letter-spacing: 0.04em; }
 
-  .about-text p {
-    color: rgba(232,232,240,0.65);
-    line-height: 1.8;
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-  }
+  .project-title { font-size: 1rem; font-weight: 600; color: #e8e8f0; margin-bottom: 0.5rem; }
+  .project-problem { font-size: 0.82rem; color: rgba(232,232,240,0.4); margin-bottom: 0.6rem; line-height: 1.55; }
+  .project-result { font-size: 0.82rem; color: rgba(93,202,165,0.85); margin-bottom: 1rem; font-weight: 500; line-height: 1.55; }
+  .project-result::before { content: '✓ '; }
 
-  .about-text p strong { color: #e8e8f0; font-weight: 600; }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .stat-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 1.4rem;
-  }
-
-  .stat-num {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #a89ff5, #5dcaa5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .stat-label {
-    font-size: 0.82rem;
-    color: rgba(232,232,240,0.45);
-    margin-top: 4px;
-  }
+  .tools-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tool-tag { font-size: 0.68rem; font-weight: 500; padding: 3px 9px; border-radius: 100px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(232,232,240,0.55); }
 
   /* Skills */
-  .skills-wrapper {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.2rem;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .skill-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 1.3rem; transition: border-color 0.2s; }
+  .skill-card:hover { border-color: rgba(168,159,245,0.25); }
+  .skill-icon { font-size: 1.5rem; margin-bottom: 0.7rem; }
+  .skill-name { font-size: 0.92rem; font-weight: 600; color: #e8e8f0; margin-bottom: 0.3rem; }
+  .skill-desc { font-size: 0.78rem; color: rgba(232,232,240,0.4); line-height: 1.6; }
 
-  .skill-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 1.6rem;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .skill-card:hover {
-    border-color: rgba(168,159,245,0.3);
-    background: rgba(83,74,183,0.08);
-  }
-
-  .skill-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: rgba(83,74,183,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .skill-icon.green { background: rgba(29,158,117,0.2); }
-  .skill-icon.coral { background: rgba(216,90,48,0.2); }
-
-  .skill-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #e8e8f0;
-    margin-bottom: 0.4rem;
-  }
-
-  .skill-desc {
-    font-size: 0.85rem;
-    color: rgba(232,232,240,0.45);
-    line-height: 1.6;
-  }
-
-  /* Services */
-  .services-grid {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
-  }
-
-  .service-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 2rem 1.6rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #534ab7, #1d9e75);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .service-card:hover::before { opacity: 1; }
-  .service-card:hover { border-color: rgba(255,255,255,0.15); }
-
-  .service-num {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: rgba(168,159,245,0.5);
-    margin-bottom: 1rem;
-  }
-
-  .service-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #e8e8f0;
-    margin-bottom: 0.6rem;
-  }
-
-  .service-desc {
-    font-size: 0.85rem;
-    color: rgba(232,232,240,0.45);
-    line-height: 1.65;
-  }
+  /* Process */
+  .process-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .process-step { text-align: center; padding: 1.5rem 1rem; }
+  .process-num { width: 40px; height: 40px; border-radius: 50%; background: rgba(83,74,183,0.2); border: 1px solid rgba(168,159,245,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 0.85rem; font-weight: 700; color: #a89ff5; }
+  .process-title { font-size: 0.9rem; font-weight: 600; color: #e8e8f0; margin-bottom: 0.4rem; }
+  .process-desc { font-size: 0.78rem; color: rgba(232,232,240,0.4); line-height: 1.6; }
 
   /* Contact */
-  .contact-box {
-    margin-top: 3rem;
-    background: rgba(83,74,183,0.08);
-    border: 1px solid rgba(168,159,245,0.2);
-    border-radius: 24px;
-    padding: 3rem;
-    text-align: center;
-  }
+  .contact-box { background: rgba(83,74,183,0.07); border: 1px solid rgba(168,159,245,0.18); border-radius: 24px; padding: 3rem 2rem; text-align: center; margin-top: 3rem; }
+  .contact-box h3 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+  .contact-box p { color: rgba(232,232,240,0.45); margin-bottom: 2rem; font-size: 0.95rem; }
+  .contact-email { color: #a89ff5; font-size: 1rem; font-weight: 500; text-decoration: none; display: block; margin-bottom: 1.5rem; }
 
-  .contact-box h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.8rem;
-  }
+  footer { position: relative; z-index: 1; text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(232,232,240,0.2); font-size: 0.8rem; }
 
-  .contact-box p {
-    color: rgba(232,232,240,0.5);
-    margin-bottom: 2rem;
-  }
-
-  .contact-email {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #a89ff5;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(168,159,245,0.3);
-    padding-bottom: 2px;
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  /* Footer */
-  footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    color: rgba(232,232,240,0.25);
-    font-size: 0.82rem;
-  }
-
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    margin: 0 2rem;
-  }
-
-  @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .stat-grid { grid-template-columns: 1fr 1fr; }
-    nav .nav-links { display: none; }
-  }
+  @media(max-width:640px) { nav .nav-links { display: none; } }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">MI</div>
+  <div class="logo">Muhammad Irshad</div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <div class="hero">
-  <div class="badge">Available for projects</div>
+  <div class="badge"><div class="badge-dot"></div> Available for Upwork projects</div>
   <h1>
-    <span class="name">Muhammad Irshad</span><br>
-    <span class="gradient">AI Developer</span>
+    Muhammad Irshad<br>
+    <span class="gradient">AI & Automation Expert</span>
   </h1>
-  <p class="tagline">Building intelligent AI systems for SaaS businesses — turning complex automation into competitive advantages.</p>
+  <p class="tagline">I build intelligent n8n workflows & AI chatbots that save businesses hours every day — deployed on Google Cloud Platform.</p>
   <div class="cta-group">
-    <a href="#contact" class="btn-primary">Get in touch →</a>
-    <a href="#services" class="btn-secondary">See my work</a>
+    <a href="#contact" class="btn-primary">Hire me on Upwork →</a>
+    <a href="#portfolio" class="btn-secondary">See my work</a>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll
+  <div class="tools-strip">
+    <span class="tools-label">Expert in</span>
+    <span class="tool-chip">n8n</span>
+    <span class="tool-chip">OpenAI</span>
+    <span class="tool-chip">WhatsApp API</span>
+    <span class="tool-chip">Google Cloud</span>
+    <span class="tool-chip">Zapier</span>
+    <span class="tool-chip">Make.com</span>
   </div>
 </div>
 
-<hr class="divider">
+<hr class="div">
 
-<!-- About -->
+<!-- STATS -->
 <section id="about">
-  <div class="section-label">About me</div>
-  <h2 class="section-title">AI developer with a builder's mindset</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm <strong>Muhammad Irshad</strong>, an AI developer focused on building intelligent systems that help SaaS businesses scale smarter. I specialize in turning real business problems into working AI solutions.</p>
-      <p>From LLM integrations and automation pipelines to full AI-powered products — I build things that actually ship and deliver value.</p>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num">AI</div>
-        <div class="stat-label">Developer</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">SaaS</div>
-        <div class="stat-label">Focused</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">LLM</div>
-        <div class="stat-label">Specialist</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Ideas built</div>
-      </div>
-    </div>
+  <div class="sec-label">By the numbers</div>
+  <div class="sec-title">Automation that delivers results</div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Workflows built</div></div>
+    <div class="stat"><div class="stat-n">7+</div><div class="stat-l">AI chatbots deployed</div></div>
+    <div class="stat"><div class="stat-n">GCP</div><div class="stat-l">Cloud deployed</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Automated delivery</div></div>
   </div>
 </section>
 
-<hr class="divider">
+<hr class="div">
 
-<!-- Skills -->
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="sec-label">Portfolio</div>
+  <div class="sec-title">n8n Workflows & AI Projects</div>
+  <div class="sec-sub">Real automations built and deployed for clients — each running live on Google Cloud Platform.</div>
+
+  <div class="portfolio-grid">
+
+    <!-- Social Media -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-purple">📱</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">Social Media Auto-Posting</div>
+      <div class="project-problem">Client needed to post content daily across multiple platforms — was doing it all manually, taking hours.</div>
+      <div class="project-result">Fully automated scheduling & posting across Instagram, Facebook, LinkedIn — zero manual work.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">Instagram API</span>
+        <span class="tool-tag">Facebook API</span>
+        <span class="tool-tag">OpenAI</span>
+        <span class="tool-tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <!-- Website Chatbot -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-teal">🌐</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">Website AI Chatbot</div>
+      <div class="project-problem">Business losing leads outside working hours — no one available to answer visitor questions 24/7.</div>
+      <div class="project-result">AI chatbot answers visitors instantly 24/7, captures leads and sends them to CRM automatically.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">OpenAI GPT-4</span>
+        <span class="tool-tag">Webhooks</span>
+        <span class="tool-tag">CRM API</span>
+        <span class="tool-tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <!-- WhatsApp Chatbot -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-amber">💬</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">WhatsApp FAQ Chatbot</div>
+      <div class="project-problem">Support team spending 80% of time answering the same questions on WhatsApp repeatedly.</div>
+      <div class="project-result">AI bot handles all FAQs instantly on WhatsApp — support team now focuses on complex issues only.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">WhatsApp Business API</span>
+        <span class="tool-tag">OpenAI</span>
+        <span class="tool-tag">RAG</span>
+        <span class="tool-tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <!-- Accounting Chatbot -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-coral">📊</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">Accounting AI Chatbot</div>
+      <div class="project-problem">Finance team getting flooded with questions about invoices, expenses, and balances from staff.</div>
+      <div class="project-result">AI chatbot answers accounting queries in real time — pulling live data from accounting software.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">OpenAI</span>
+        <span class="tool-tag">QuickBooks API</span>
+        <span class="tool-tag">Google Sheets</span>
+        <span class="tool-tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <!-- Billing Status -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-pink">💳</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">Billing Status Automation</div>
+      <div class="project-problem">Clients constantly asking about invoice status — staff manually checking and replying to each one.</div>
+      <div class="project-result">Customers get instant billing status via WhatsApp or email — fully automated, no staff needed.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">WhatsApp API</span>
+        <span class="tool-tag">Stripe API</span>
+        <span class="tool-tag">Email</span>
+        <span class="tool-tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <!-- Summarizing -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-blue">📝</div>
+        <span class="gcp-badge">☁ GCP</span>
+      </div>
+      <div class="project-title">AI Summarizing Workflow</div>
+      <div class="project-problem">Team spending hours reading long reports, emails, and documents to extract key information.</div>
+      <div class="project-result">Documents, emails, and reports summarized automatically in seconds — key points delivered to Slack/email.</div>
+      <div class="tools-row">
+        <span class="tool-tag">n8n</span>
+        <span class="tool-tag">OpenAI GPT-4</span>
+        <span class="tool-tag">Gmail</span>
+        <span class="tool-tag">Slack</span>
+        <span class="tool-tag">Google Drive</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">Expertise</div>
-  <h2 class="section-title">What I work with</h2>
-  <p class="section-sub">Core technologies and capabilities I bring to every project.</p>
-  <div class="skills-wrapper">
+  <div class="sec-label">Expertise</div>
+  <div class="sec-title">What I bring to every project</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">n8n Workflow Automation</div>
+      <div class="skill-desc">Complex multi-step workflows, error handling, conditional logic, and webhook integrations.</div>
+    </div>
     <div class="skill-card">
       <div class="skill-icon">🤖</div>
-      <div class="skill-name">LLM Integration</div>
-      <div class="skill-desc">OpenAI, Claude, Gemini — prompt engineering, fine-tuning, and building reliable AI pipelines.</div>
+      <div class="skill-name">AI Chatbot Development</div>
+      <div class="skill-desc">GPT-4 powered bots trained on your business data — website, WhatsApp, and custom channels.</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon green">⚡</div>
-      <div class="skill-name">AI Automation</div>
-      <div class="skill-desc">End-to-end workflow automation using AI agents, n8n, and custom orchestration logic.</div>
+      <div class="skill-icon">☁️</div>
+      <div class="skill-name">Google Cloud Deployment</div>
+      <div class="skill-desc">Reliable, scalable deployment on GCP — workflows run 24/7 with zero downtime.</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon coral">🚀</div>
-      <div class="skill-name">SaaS Development</div>
-      <div class="skill-desc">Building scalable AI-powered SaaS products from architecture to deployment.</div>
+      <div class="skill-icon">🔗</div>
+      <div class="skill-name">API Integrations</div>
+      <div class="skill-desc">Connect any tools — CRM, WhatsApp, Stripe, accounting software, social media, and more.</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🧠</div>
-      <div class="skill-name">RAG & Vector Search</div>
-      <div class="skill-desc">Custom knowledge bases, semantic search, and document intelligence systems.</div>
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Social Media Automation</div>
+      <div class="skill-desc">Auto-generate and schedule posts across all platforms using AI content generation.</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon green">🔗</div>
-      <div class="skill-name">API Development</div>
-      <div class="skill-desc">Designing and building robust APIs that connect AI capabilities with business systems.</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon coral">📊</div>
-      <div class="skill-name">AI Product Strategy</div>
-      <div class="skill-desc">Helping teams identify where AI creates the most leverage in their product.</div>
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Business Process Automation</div>
+      <div class="skill-desc">Identify manual bottlenecks and replace them with intelligent automated workflows.</div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
+<hr class="div">
 
-<!-- Services -->
-<section id="services">
-  <div class="section-label">Services</div>
-  <h2 class="section-title">How I can help</h2>
-  <p class="section-sub">Focused engagements designed to deliver real AI value fast.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-title">AI Feature Development</div>
-      <div class="service-desc">Build and integrate AI features directly into your SaaS product — chat, summaries, recommendations, and more.</div>
+<!-- PROCESS -->
+<section id="process">
+  <div class="sec-label">How I work</div>
+  <div class="sec-title">My delivery process</div>
+  <div class="sec-sub">Clear, fast, and professional — from first message to live deployment.</div>
+  <div class="process-row">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-title">Understand</div>
+      <div class="process-desc">I listen to your problem and map out the exact automation needed.</div>
     </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-title">Automation Pipelines</div>
-      <div class="service-desc">Design intelligent workflows that eliminate manual tasks and let your team focus on what matters.</div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-title">Build</div>
+      <div class="process-desc">I build the n8n workflow with all integrations, error handling, and logic.</div>
     </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-title">AI Consulting</div>
-      <div class="service-desc">Strategic guidance on where and how to apply AI for maximum impact in your business.</div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-title">Test</div>
+      <div class="process-desc">Full end-to-end testing with real data before any deployment.</div>
     </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <div class="service-title">Custom AI Products</div>
-      <div class="service-desc">End-to-end development of AI-first SaaS products from idea to launch.</div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-title">Deploy</div>
+      <div class="process-desc">Live deployment on Google Cloud — running 24/7 reliably.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">05</div>
+      <div class="process-title">Support</div>
+      <div class="process-desc">Post-delivery support, documentation, and handover included.</div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
+<hr class="div">
 
-<!-- Contact -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-box">
-    <h3>Let's build something together</h3>
-    <p>Have a project in mind? I'd love to hear about it.</p>
+    <h3>Ready to automate<br><span class="gradient">your business?</span></h3>
+    <p>Tell me what you want to automate — I'll build it, deploy it, and hand it over ready to run.</p>
     <a href="mailto:ericpoul96@gmail.com" class="contact-email">ericpoul96@gmail.com</a>
-    <br>
-    <a href="mailto:ericpoul96@gmail.com" class="btn-primary">Send me an email →</a>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="mailto:ericpoul96@gmail.com" class="btn-primary">Send me a message →</a>
+      <a href="https://www.upwork.com" class="btn-secondary" target="_blank">Find me on Upwork</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Muhammad Irshad · AI Developer · <a href="https://jarvisenterprise.com" style="color: rgba(168,159,245,0.6); text-decoration: none;">jarvisenterprise.com</a></p>
+  <p>© 2025 Muhammad Irshad · AI Developer & Automation Expert · <a href="https://jarvisenterprise.com" style="color:rgba(168,159,245,0.5);text-decoration:none;">jarvisenterprise.com</a></p>
 </footer>
 
 </body>
